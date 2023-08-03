@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class BottomNavigationComponent extends StatefulWidget {
-  const BottomNavigationComponent({super.key});
+  int currentIndex;
+
+  BottomNavigationComponent({
+    super.key,
+    this.currentIndex = 0,
+  });
 
   @override
   State<BottomNavigationComponent> createState() =>
@@ -9,23 +14,6 @@ class BottomNavigationComponent extends StatefulWidget {
 }
 
 class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
-  int currentIndex = 0;
-
-  final screens = const [
-    Center(
-      child: Text(
-        "Home",
-        style: TextStyle(fontSize: 50, color: Colors.black),
-      ),
-    ),
-    Center(
-      child: Text(
-        "Profile",
-        style: TextStyle(fontSize: 50, color: Colors.black),
-      ),
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -36,9 +24,9 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
       unselectedItemColor: const Color.fromARGB(255, 220, 250, 220),
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      currentIndex: currentIndex,
+      currentIndex: widget.currentIndex,
       onTap: (value) => setState(() {
-        currentIndex = value;
+        widget.currentIndex = value;
       }),
       items: const [
         BottomNavigationBarItem(

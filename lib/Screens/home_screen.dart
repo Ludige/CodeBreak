@@ -12,20 +12,8 @@ class ScreenHome extends StatefulWidget {
 
 class _ScreenHomeState extends State<ScreenHome> {
   int currentIndex = 0;
-
   final screens = const [
-    Center(
-      child: Text(
-        "Home",
-        style: TextStyle(fontSize: 50, color: Colors.black),
-      ),
-    ),
-    Center(
-      child: Text(
-        "Profile",
-        style: TextStyle(fontSize: 50, color: Colors.black),
-      ),
-    ),
+    ScreenHome(),
   ];
   // IndexedStack no body pra mover entre paginas sem ele recarregar
   @override
@@ -35,7 +23,9 @@ class _ScreenHomeState extends State<ScreenHome> {
         appBar: const ComponentAppBar(),
         backgroundColor: Colors.white,
         body: screens[currentIndex],
-        bottomNavigationBar: const BottomNavigationComponent(),
+        bottomNavigationBar: BottomNavigationComponent(
+          currentIndex: currentIndex,
+        ),
       ),
     );
   }
