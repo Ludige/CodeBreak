@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../Misc/GetX/navigator_index.dart';
 
 class BottomNavigationComponent extends StatefulWidget {
-  int currentIndex;
-
-  BottomNavigationComponent({
-    super.key,
-    this.currentIndex = 0,
-  });
+  const BottomNavigationComponent({super.key});
 
   @override
   State<BottomNavigationComponent> createState() =>
@@ -14,19 +12,22 @@ class BottomNavigationComponent extends StatefulWidget {
 }
 
 class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
+  NavigatorIndex currentIndex = Get.put(NavigatorIndex());
+
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.shifting,
+      // TODO >> transformar Cores e tamanhos em widget
       backgroundColor: Colors.blue,
       iconSize: 32,
       selectedItemColor: const Color.fromARGB(255, 148, 240, 151),
       unselectedItemColor: const Color.fromARGB(255, 220, 250, 220),
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      currentIndex: widget.currentIndex,
+      currentIndex: currentIndex.index.value,
       onTap: (value) => setState(() {
-        widget.currentIndex = value;
+        currentIndex.index.value = value;
       }),
       items: const [
         BottomNavigationBarItem(

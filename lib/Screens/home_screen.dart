@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../Components/appbar_component.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -15,8 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: const ComponentAppBar(),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.blue,
         body: Container(),
       ),
     );

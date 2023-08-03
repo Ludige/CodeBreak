@@ -1,4 +1,3 @@
-import 'package:duocode/Components/appbar_component.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -13,8 +12,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: const ComponentAppBar(),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         body: Container(),
       ),
     );
