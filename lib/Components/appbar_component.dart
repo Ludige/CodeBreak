@@ -5,9 +5,9 @@ import '../Misc/Themes/themes.dart';
 // import '../Misc/'; SharedPreferences
 
 class ComponentAppBar extends StatefulWidget implements PreferredSizeWidget {
-  Function? onTap;
+  // Function? onTap;
 
-  ComponentAppBar({super.key, this.onTap});
+  const ComponentAppBar({super.key});
 
   @override
   State<ComponentAppBar> createState() => _ComponentAppBarState();
@@ -30,10 +30,9 @@ class _ComponentAppBarState extends State<ComponentAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       title: const SizedBox(
-        width: 35,
         child: Icon(
-          Icons.abc,
-          color: Colors.green,
+          Icons.access_time,
+          color: Colors.white,
         ),
         // Image.asset("assets/image/logo.png", scale: 3),
       ),
