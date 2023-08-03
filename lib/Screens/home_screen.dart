@@ -1,31 +1,23 @@
-import 'package:duocode/Components/navigation_component.dart';
 import 'package:flutter/material.dart';
 
 import '../Components/appbar_component.dart';
 
-class ScreenHome extends StatefulWidget {
-  const ScreenHome({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<ScreenHome> createState() => _ScreenHomeState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _ScreenHomeState extends State<ScreenHome> {
-  int currentIndex = 0;
-  final screens = const [
-    ScreenHome(),
-  ];
-  // IndexedStack no body pra mover entre paginas sem ele recarregar
+class _HomeScreenState extends State<HomeScreen> {
+// IndexedStack no body pra mover entre paginas sem ele recarregar
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: const ComponentAppBar(),
         backgroundColor: Colors.white,
-        body: screens[currentIndex],
-        bottomNavigationBar: BottomNavigationComponent(
-          currentIndex: currentIndex,
-        ),
+        body: Container(),
       ),
     );
   }

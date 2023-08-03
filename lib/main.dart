@@ -1,3 +1,5 @@
+import 'package:duocode/Screens/hud.dart';
+import 'package:duocode/Screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,24 +10,19 @@ import 'Screens/home_screen.dart';
 void main() {
   runApp(
     GetMaterialApp(
-      title: 'RedeSocial',
+      title: 'Code Break',
       theme: Themes.lightTheme,
       darkTheme: Themes.darkTheme,
       themeMode: ThemeMode.system,
       translations: Languages(),
       locale: Get.deviceLocale,
       fallbackLocale: const Locale('pt', 'BR'),
-      initialRoute: '/home',
+      initialRoute: '/hud',
       routes: {
         //   '/splash': (context) => const ScreenSplash(),
-        '/home': (context) => const ScreenHome(),
-        //   "/register": (context) => const ScreenRegistration(),
-        //   "/login": (context) => const ScreenLogin(),
-        //   "/profile": (context) => const ScreenProfile(),
-        //   "/setting": (context) => const ScreenSettings(),
-        //   "/settingsPassword": (context) => const ScreenSettingsPassword(),
-        //   "/createPost": (context) => const ScreenCreatePost(),
-        //   "/teste": (context) => const Testes(),
+        '/hud': (context) => const Hud(),
+        '/home': (context) => const HomeScreen(),
+        '/profile': (context) => const ProfileScreen(),
       },
       debugShowCheckedModeBanner: false,
     ),
