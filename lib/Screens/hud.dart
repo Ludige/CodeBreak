@@ -17,8 +17,8 @@ class Hud extends StatefulWidget {
 class _HudState extends State<Hud> {
   NavigatorIndex currentIndex = Get.put(NavigatorIndex());
   final screens = const [
-    ProfileScreen(),
     HomeScreen(),
+    ProfileScreen(),
   ];
   // IndexedStack no body pra mover entre paginas sem ele recarregar
   @override
