@@ -1,3 +1,4 @@
+import 'package:duocode/Components/button_component.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,46 +25,84 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 20,
-                      ),
+                      padding: const EdgeInsets.only(
+                          left: 12, right: 12, top: 20, bottom: 10),
                       //Foto de perfil
                       child: Container(
                         width: 120,
                         height: 120,
-                        color: Colors.yellow,
+                        color: Colors.blue,
                       ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 30, right: 12),
-                          child: Container(
-                            constraints: BoxConstraints(
-                              maxWidth: Get.width * 0.6,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 30,
+                              right: 16,
+                              left: 12,
                             ),
                             child: ComponentText(
-                              fontSize: 20,
-                              text: "NomeNomeNomeNomeNaaaaaaa",
+                              fontSize: 22,
+                              overflow: TextOverflow.visible,
+                              text: "Nome bunitinho funcionando",
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 6),
-                          child: Container(
-                            color: Colors.grey,
-                            width: Get.width * 0.6,
-                            constraints: BoxConstraints(
-                              minHeight: Get.height * 0.102,
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 6, right: 16, left: 12),
+                            child: Container(
+                              height: 75,
+                              color: Colors.blue,
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
-                )
+                ),
+                const Divider(
+                  color: Colors.blue,
+                  thickness: 0.5,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 6, right: 12, left: 12),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 75,
+                        width: Get.width * 0.45,
+                        color: Colors.blue,
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 12),
+                        height: 75,
+                        width: Get.width * 0.45,
+                        color: Colors.blue,
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 12, right: 12, left: 12),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 75,
+                        width: Get.width * 0.45,
+                        color: Colors.blue,
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 12),
+                        height: 75,
+                        width: Get.width * 0.45,
+                        color: Colors.blue,
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           )),
