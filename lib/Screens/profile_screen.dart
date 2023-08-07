@@ -67,41 +67,54 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   color: Colors.blue,
                   thickness: 0.5,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 6, right: 12, left: 12),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 75,
-                        width: Get.width * 0.45,
-                        color: Colors.blue,
+                Row(
+                  children: [
+                    Container(
+                      color: Color.fromARGB(255, 32, 32, 32),
+                      margin: const EdgeInsets.only(left: 12, top: 12),
+                      height: Get.height * 0.3,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        //Left
+                        children: [
+                          Container(
+                            height: 120,
+                            width: Get.width * 0.45,
+                            color: Colors.blue,
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(top: 12),
+                            height: 75,
+                            width: Get.width * 0.45,
+                            color: Colors.blue,
+                          ),
+                        ],
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 12),
-                        height: 75,
-                        width: Get.width * 0.45,
-                        color: Colors.blue,
+                    ),
+                    Container(
+                      color: Color.fromARGB(255, 32, 32, 32),
+                      height: Get.height * 0.3,
+                      margin:
+                          const EdgeInsets.only(left: 12, right: 12, top: 12),
+                      child: Column(
+                        //Right
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 75,
+                            width: Get.width * 0.45,
+                            color: Colors.blue,
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(top: 12),
+                            height: 75,
+                            width: Get.width * 0.45,
+                            color: Colors.blue,
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 12, right: 12, left: 12),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 75,
-                        width: Get.width * 0.45,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 12),
-                        height: 75,
-                        width: Get.width * 0.45,
-                        color: Colors.blue,
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),
