@@ -6,6 +6,7 @@ class ComponentText extends StatefulWidget {
   int maxLines;
   String? text;
   Color? color;
+  bool boldFont;
 
   ComponentText({
     super.key,
@@ -14,6 +15,7 @@ class ComponentText extends StatefulWidget {
     this.overflow = TextOverflow.ellipsis,
     this.maxLines = 1,
     this.color,
+    this.boldFont = false,
   });
 
   @override
@@ -30,6 +32,7 @@ class _ComponentTextState extends State<ComponentText> {
         fontFamily: 'Imprima-Regular',
         overflow: widget.overflow,
         color: widget.color,
+        fontWeight: widget.boldFont ? FontWeight.bold : FontWeight.normal,
       ),
       maxLines: 1,
     );

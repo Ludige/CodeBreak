@@ -1,4 +1,5 @@
 import 'package:duocode/Components/button_component.dart';
+import 'package:duocode/Components/button_w_text_component.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -47,7 +48,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             child: ComponentText(
                               fontSize: 22,
                               overflow: TextOverflow.visible,
-                              text: "Nome bunitinho funcionando",
+                              text: "Feliperson Mottos",
                             ),
                           ),
                           Padding(
@@ -56,6 +57,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             child: Container(
                               height: 75,
                               color: Colors.blue,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    color: const Color.fromARGB(
+                                        255, 173, 171, 165),
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 10),
+                                    height: 60,
+                                    width: 60,
+                                  ),
+                                  ComponentText(
+                                    text: "Nivel ???",
+                                    fontSize: 25,
+                                    boldFont: true,
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -80,19 +98,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Container(
                             height: 120,
                             width: Get.width * 0.45,
-                            color: Colors.blue,
+                            color: Color.fromARGB(255, 6, 172, 150),
                           ),
                           Container(
                             margin: const EdgeInsets.only(top: 12),
                             height: 75,
                             width: Get.width * 0.45,
-                            color: Colors.blue,
+                            color: Color.fromARGB(255, 6, 172, 150),
                           ),
                         ],
                       ),
                     ),
                     Container(
-                      color: Color.fromARGB(255, 32, 32, 32),
+                      color: const Color.fromARGB(255, 32, 32, 32),
                       height: Get.height * 0.3,
                       margin:
                           const EdgeInsets.only(left: 12, right: 12, top: 12),
@@ -101,15 +119,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            height: 75,
+                            height: 50,
                             width: Get.width * 0.45,
-                            color: Colors.blue,
+                            color: const Color.fromARGB(255, 6, 172, 150),
+                            child: ComponentTextButton(
+                              text: "Editar Perfil",
+                              textColor: Colors.black,
+                              spaceBetweenIconAndText: 5,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              fontSize: 20,
+                              iconSize: 30,
+                              iconColor: Colors.black,
+                              icon: Icons.person,
+                              onPressed: () {
+                                //TODO
+                              },
+                            ),
                           ),
                           Container(
                             margin: const EdgeInsets.only(top: 12),
-                            height: 75,
+                            height: 50,
                             width: Get.width * 0.45,
-                            color: Colors.blue,
+                            color: Color.fromARGB(255, 6, 172, 150),
                           ),
                         ],
                       ),
