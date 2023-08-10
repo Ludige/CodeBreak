@@ -31,14 +31,17 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
       }),
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.code),
+          icon: Icon(Icons.code, color: Colors.yellowAccent),
           label: "Home",
-          backgroundColor: Colors.blue,
+          backgroundColor: Color.fromARGB(255, 15, 15, 15),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
+          icon: Icon(
+            Icons.person,
+            color: Colors.yellowAccent,
+          ),
           label: "Profile",
-          backgroundColor: Colors.blue,
+          backgroundColor: Color.fromARGB(255, 15, 15, 15),
         )
       ],
     );
