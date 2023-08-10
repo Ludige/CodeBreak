@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:duocode/Components/navigation_component.dart';
 import 'package:duocode/Screens/home_screen.dart';
 import 'package:get/get.dart';
-import '../Components/appbar_component.dart';
 import '../Misc/GetX/navigator_index.dart';
 
 class Hud extends StatefulWidget {
@@ -25,7 +24,6 @@ class _HudState extends State<Hud> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: const ComponentAppBar(),
         backgroundColor: Colors.white,
         body: Obx(() {
           return screens[currentIndex.index.value];

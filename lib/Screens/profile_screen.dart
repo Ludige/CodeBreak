@@ -1,4 +1,3 @@
-import 'package:duocode/Components/button_component.dart';
 import 'package:duocode/Components/button_w_text_component.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,15 +34,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           decoration: BoxDecoration(
                             color: Colors.black38,
                             border: Border.all(
-                              width: 1,
-                              color: Colors.yellowAccent, //aqiu
+                              color: Colors.yellowAccent,
                             ),
                           ),
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.add_a_photo_outlined),
+                          child: ComponentTextButton(
+                            icon: Icons.add_a_photo_outlined,
+                            iconColor: Colors.yellowAccent,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             iconSize: 25,
-                            color: Colors.yellowAccent,
+                            onPressed: () {},
                           )),
                     ),
                     Expanded(
@@ -57,7 +56,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               left: 12,
                             ),
                             child: ComponentText(
-                              fontSize: 22,
+                              fontSize: 20,
                               overflow: TextOverflow.visible,
                               text: "Feliperson Mottos",
                             ),
@@ -79,7 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   ComponentText(
                                     text: "Nivel ???",
-                                    fontSize: 22,
+                                    fontSize: 20,
                                     boldFont: true,
                                     color: Colors.white,
                                   )
