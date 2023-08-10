@@ -17,7 +17,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.black87,
           body: SizedBox(
             width: Get.width * 1,
             child: Column(
@@ -30,10 +30,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           left: 12, right: 12, top: 20, bottom: 10),
                       //Foto de perfil
                       child: Container(
-                        width: 120,
-                        height: 120,
-                        color: Colors.blue,
-                      ),
+                          width: 120,
+                          height: 120,
+                          decoration: BoxDecoration(
+                            color: Colors.black38,
+                            border: Border.all(
+                              width: 1,
+                              color: Colors.yellowAccent, //aqiu
+                            ),
+                          ),
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.add_a_photo_outlined),
+                            iconSize: 25,
+                            color: Colors.yellowAccent,
+                          )),
                     ),
                     Expanded(
                       child: Column(
@@ -56,21 +67,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 top: 6, right: 16, left: 12),
                             child: Container(
                               height: 75,
-                              color: Colors.blue,
+                              color: Colors.black38,
                               child: Row(
                                 children: [
                                   Container(
-                                    color: const Color.fromARGB(
-                                        255, 173, 171, 165),
+                                    color: Colors.yellow,
                                     margin: const EdgeInsets.symmetric(
                                         horizontal: 10),
-                                    height: 60,
-                                    width: 60,
+                                    height: 55,
+                                    width: 55,
                                   ),
                                   ComponentText(
                                     text: "Nivel ???",
-                                    fontSize: 25,
+                                    fontSize: 22,
                                     boldFont: true,
+                                    color: Colors.white,
                                   )
                                 ],
                               ),
@@ -82,13 +93,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
                 const Divider(
-                  color: Colors.blue,
+                  color: Colors.yellowAccent,
                   thickness: 0.5,
                 ),
                 Row(
                   children: [
                     Container(
-                      color: Color.fromARGB(255, 32, 32, 32),
+                      // color: Colors.black38,
                       margin: const EdgeInsets.only(left: 12, top: 12),
                       height: Get.height * 0.3,
                       child: Column(
@@ -98,19 +109,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Container(
                             height: 120,
                             width: Get.width * 0.45,
-                            color: Color.fromARGB(255, 6, 172, 150),
+                            color: Colors.black38,
                           ),
                           Container(
                             margin: const EdgeInsets.only(top: 12),
                             height: 75,
                             width: Get.width * 0.45,
-                            color: Color.fromARGB(255, 6, 172, 150),
+                            color: Colors.black38,
                           ),
                         ],
                       ),
                     ),
                     Container(
-                      color: const Color.fromARGB(255, 32, 32, 32),
+                      // color: Colors.black38,
                       height: Get.height * 0.3,
                       margin:
                           const EdgeInsets.only(left: 12, right: 12, top: 12),
@@ -121,15 +132,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Container(
                             height: 50,
                             width: Get.width * 0.45,
-                            color: const Color.fromARGB(255, 6, 172, 150),
+                            color: Colors.black38,
                             child: ComponentTextButton(
                               text: "Editar Perfil",
-                              textColor: Colors.black,
                               spaceBetweenIconAndText: 5,
                               mainAxisAlignment: MainAxisAlignment.center,
-                              fontSize: 20,
-                              iconSize: 30,
-                              iconColor: Colors.black,
+                              fontSize: 18,
+                              iconSize: 26,
+                              textColor: Colors.white,
+                              iconColor: Colors.white,
                               icon: Icons.person,
                               onPressed: () {
                                 //TODO
@@ -140,7 +151,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             margin: const EdgeInsets.only(top: 12),
                             height: 50,
                             width: Get.width * 0.45,
-                            color: Color.fromARGB(255, 6, 172, 150),
+                            color: Colors.black38,
                           ),
                         ],
                       ),
