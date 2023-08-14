@@ -8,7 +8,7 @@ class Themes extends GetxController {
 
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    primarySwatch: Colors.cyan,
+    primarySwatch: Colors.yellow,
     scaffoldBackgroundColor: CustomizedColors.darkBackground,
     appBarTheme: AppBarTheme(
       backgroundColor: CustomizedColors.darkBackground,
@@ -24,7 +24,7 @@ class Themes extends GetxController {
 
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
-    primarySwatch: Colors.teal,
+    primarySwatch: Colors.cyan,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,

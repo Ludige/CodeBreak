@@ -18,7 +18,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: CustomizedColors.darkBackground,
         body: SizedBox(
           width: Get.width * 1,
           child: Column(
@@ -42,7 +41,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: ComponentTextButton(
                           icon: Icons.add_a_photo_outlined,
                           iconColor: Colors.yellowAccent,
-                          mainAxisAlignment: MainAxisAlignment.center,
                           iconSize: 25,
                           onPressed: () {},
                         )),
@@ -53,10 +51,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(
-                            top: 30,
-                            right: 16,
-                            left: 12,
-                          ),
+                              top: 30, right: 16, left: 12),
                           child: ComponentText(
                             fontSize: 20,
                             overflow: TextOverflow.visible,
@@ -110,7 +105,42 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       //Left
                       children: [
                         ComponentCustomBox(
-                          height: 120,
+                          height: 100,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(top: 6, left: 12),
+                                child: ComponentText(
+                                  text: "Linguas",
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  boldFont: true,
+                                ),
+                              ),
+                              Container(
+                                height: 60,
+                                margin:
+                                    const EdgeInsets.only(left: 10, right: 10),
+                                child: ListView.separated(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: 5,
+                                  separatorBuilder: (context, index) {
+                                    // Space Between
+                                    return const SizedBox(width: 6);
+                                  },
+                                  itemBuilder: (context, index) {
+                                    return ComponentCustomBox(
+                                      width: 12,
+                                      margin: const EdgeInsets.symmetric(
+                                          vertical: 5),
+                                      backgroundColor: Colors.redAccent,
+                                    );
+                                  },
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                         ComponentCustomBox(
                           margin: const EdgeInsets.only(top: 12),
@@ -129,13 +159,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ComponentCustomBox(
                           child: ComponentTextButton(
                             text: "Editar Perfil",
-                            spaceBetweenIconAndText: 5,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            fontSize: 18,
-                            iconSize: 26,
-                            textColor: Colors.white,
-                            iconColor: Colors.white,
                             icon: Icons.person,
+                            iconColor: Colors.tealAccent,
                             onPressed: () {
                               //TODO
                             },
@@ -143,6 +168,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         ComponentCustomBox(
                           margin: const EdgeInsets.only(top: 12),
+                          child: ComponentTextButton(
+                            text: "00 Dias",
+                            icon: Icons.code,
+                            iconColor: Colors.greenAccent,
+                            onPressed: () {
+                              //TODO
+                            },
+                          ),
                         ),
                       ],
                     ),
