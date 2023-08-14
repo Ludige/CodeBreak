@@ -103,7 +103,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Row(
                 children: [
                   Container(
-                    // color: Colors.black38,
                     margin: const EdgeInsets.only(left: 12, top: 12),
                     height: Get.height * 0.3,
                     child: Column(
@@ -111,7 +110,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       //Left
                       children: [
                         ComponentCustomBox(
-                          margin: const EdgeInsets.only(top: 12),
                           height: 120,
                         ),
                         ComponentCustomBox(
