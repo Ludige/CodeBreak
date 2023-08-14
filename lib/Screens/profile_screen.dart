@@ -1,4 +1,5 @@
 import 'package:duocode/Components/button_w_text_component.dart';
+import 'package:duocode/Components/custom_box_component.dart';
 import 'package:duocode/Misc/Themes/customized_colors_global.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,159 +18,143 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: CustomizedColors.darkBackground,
-          body: SizedBox(
-            width: Get.width * 1,
-            child: Column(
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          left: 12, right: 12, top: 20, bottom: 10),
-                      //Foto de perfil
-                      child: Container(
-                          width: 120,
-                          height: 120,
-                          decoration: BoxDecoration(
-                            color: Colors.black38,
-                            border: Border.all(
-                              color: Colors.yellowAccent,
-                            ),
+        backgroundColor: CustomizedColors.darkBackground,
+        body: SizedBox(
+          width: Get.width * 1,
+          child: Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 12, right: 12, top: 20, bottom: 10),
+                    //Foto de perfil
+                    child: Container(
+                        width: 120,
+                        height: 120,
+                        decoration: BoxDecoration(
+                          color: Colors.black38,
+                          border: Border.all(
+                            color: Colors.yellowAccent,
                           ),
-                          child: ComponentTextButton(
-                            icon: Icons.add_a_photo_outlined,
-                            iconColor: Colors.yellowAccent,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            iconSize: 25,
-                            onPressed: () {},
-                          )),
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: 30,
-                              right: 16,
-                              left: 12,
-                            ),
-                            child: ComponentText(
-                              fontSize: 20,
-                              overflow: TextOverflow.visible,
-                              text: "Feliperson Mottos",
-                            ),
+                        ),
+                        child: ComponentTextButton(
+                          icon: Icons.add_a_photo_outlined,
+                          iconColor: Colors.yellowAccent,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          iconSize: 25,
+                          onPressed: () {},
+                        )),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 30,
+                            right: 16,
+                            left: 12,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 6, right: 16, left: 12),
-                            child: Container(
-                              height: 75,
-                              decoration: BoxDecoration(
-                                color: Colors.black38,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.yellow,
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 10),
-                                    height: 55,
-                                    width: 55,
-                                  ),
-                                  ComponentText(
-                                    text: "Nivel ???",
-                                    fontSize: 20,
-                                    boldFont: true,
-                                    color: Colors.white,
-                                  )
-                                ],
-                              ),
-                            ),
+                          child: ComponentText(
+                            fontSize: 20,
+                            overflow: TextOverflow.visible,
+                            text: "Feliperson Mottos",
                           ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                const Divider(
-                  color: Colors.yellowAccent,
-                  thickness: 0.5,
-                ),
-                Row(
-                  children: [
-                    Container(
-                      // color: Colors.black38,
-                      margin: const EdgeInsets.only(left: 12, top: 12),
-                      height: Get.height * 0.3,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        //Left
-                        children: [
-                          Container(
-                            height: 120,
-                            width: Get.width * 0.45,
-                            color: Colors.black38,
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(top: 12),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 6, right: 16, left: 12),
+                          child: Container(
                             height: 75,
-                            width: Get.width * 0.45,
-                            color: Colors.black38,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      // color: Colors.black38,
-                      height: Get.height * 0.3,
-                      margin:
-                          const EdgeInsets.only(left: 12, right: 12, top: 12),
-                      child: Column(
-                        //Right
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: 50,
-                            width: Get.width * 0.45,
                             decoration: BoxDecoration(
                               color: Colors.black38,
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: ComponentTextButton(
-                              text: "Editar Perfil",
-                              spaceBetweenIconAndText: 5,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              fontSize: 18,
-                              iconSize: 26,
-                              textColor: Colors.white,
-                              iconColor: Colors.white,
-                              icon: Icons.person,
-                              onPressed: () {
-                                //TODO
-                              },
+                            child: Row(
+                              children: [
+                                ComponentCustomBox(
+                                  height: 55,
+                                  width: 13.5,
+                                  backgroundColor: Colors.yellow,
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 10),
+                                ),
+                                ComponentText(
+                                  text: "Nivel ???",
+                                  fontSize: 20,
+                                  boldFont: true,
+                                  color: Colors.white,
+                                )
+                              ],
                             ),
                           ),
-                          Container(
-                            margin: const EdgeInsets.only(top: 12),
-                            height: 50,
-                            width: Get.width * 0.45,
-                            color: Colors.black38,
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ],
-            ),
-          )),
+                  ),
+                ],
+              ),
+              const Divider(
+                color: Colors.yellowAccent,
+                thickness: 0.5,
+              ),
+              Row(
+                children: [
+                  Container(
+                    // color: Colors.black38,
+                    margin: const EdgeInsets.only(left: 12, top: 12),
+                    height: Get.height * 0.3,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      //Left
+                      children: [
+                        ComponentCustomBox(
+                          margin: const EdgeInsets.only(top: 12),
+                          height: 120,
+                        ),
+                        ComponentCustomBox(
+                          margin: const EdgeInsets.only(top: 12),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    // color: Colors.black38,
+                    height: Get.height * 0.3,
+                    margin: const EdgeInsets.only(left: 12, right: 12, top: 12),
+                    child: Column(
+                      //Right
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ComponentCustomBox(
+                          child: ComponentTextButton(
+                            text: "Editar Perfil",
+                            spaceBetweenIconAndText: 5,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            fontSize: 18,
+                            iconSize: 26,
+                            textColor: Colors.white,
+                            iconColor: Colors.white,
+                            icon: Icons.person,
+                            onPressed: () {
+                              //TODO
+                            },
+                          ),
+                        ),
+                        ComponentCustomBox(
+                          margin: const EdgeInsets.only(top: 12),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
