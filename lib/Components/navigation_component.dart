@@ -38,7 +38,7 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.person,
-            color: Colors.yellowAccent,
+            color: Color.fromARGB(255, 255, 255, 0),
           ),
           label: "Profile",
           backgroundColor: Color.fromARGB(255, 15, 15, 15),

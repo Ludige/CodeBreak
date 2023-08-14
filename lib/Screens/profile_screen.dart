@@ -1,4 +1,5 @@
 import 'package:duocode/Components/button_w_text_component.dart';
+import 'package:duocode/Misc/Themes/customized_colors_global.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +17,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: Colors.black87,
+          backgroundColor: CustomizedColors.darkBackground,
           body: SizedBox(
             width: Get.width * 1,
             child: Column(
@@ -66,11 +67,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 top: 6, right: 16, left: 12),
                             child: Container(
                               height: 75,
-                              color: Colors.black38,
+                              decoration: BoxDecoration(
+                                color: Colors.black38,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
                               child: Row(
                                 children: [
                                   Container(
-                                    color: Colors.yellow,
+                                    decoration: BoxDecoration(
+                                      color: Colors.yellow,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
                                     margin: const EdgeInsets.symmetric(
                                         horizontal: 10),
                                     height: 55,
@@ -131,7 +138,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Container(
                             height: 50,
                             width: Get.width * 0.45,
-                            color: Colors.black38,
+                            decoration: BoxDecoration(
+                              color: Colors.black38,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
                             child: ComponentTextButton(
                               text: "Editar Perfil",
                               spaceBetweenIconAndText: 5,

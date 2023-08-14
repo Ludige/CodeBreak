@@ -1,3 +1,4 @@
+import 'package:duocode/Misc/Themes/customized_colors_global.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: CustomizedColors.darkBackground,
         body: Container(),
       ),
     );
