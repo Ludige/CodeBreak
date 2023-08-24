@@ -1,0 +1,34 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "TCC - CodeBreaker",
+    "description": ""
+  },
+  "host": null,
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "apiKey",
+      "name": "x-access-token",
+      "scheme": "bearer",
+      "in": "headers"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "security": [
+    {
+      "Authorization": []
+    }
+  ]
+}
