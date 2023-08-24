@@ -204,6 +204,39 @@ module.exports = {
             res.status(500).json({ error: error.message });
         }
     },
+    addLanguage: async function (req, res, next) {
+        /*
+            #swagger.tags = ['Profile']
+            #swagger.summary = 'Adiciona uma lingua ao Perfil'
+            #swagger.responses[404] = {
+                description: "Nenhum Perfil encontrado no Banco de Dados",
+            }
+            #swagger.parameters['Profile'] = { 
+                in: 'body', 
+                description: 'Atualiza um Perfil do Banco de Dados', 
+                required: true,
+                schema: { 
+                    language: "Python"
+                } 
+            }
+        */
+        try {
+            const _id = req._idToken;
+
+            let profile = await Profile.findById(req.params.profileObjectId);
+            
+            if (!profile) {
+                res.status(404).json({ msg: "Perfil não encontrado" });
+                return;
+            }
+            //TODO consertar o req body daqui
+            profile.languages.push(req.body);
+            await profile.save();
+            res.status(200).json(profile);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    },
     deleteByID: async function (req, res, next) {
         /**
          * #swagger.tags = ['Profile']

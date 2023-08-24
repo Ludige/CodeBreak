@@ -20,6 +20,10 @@ const ProfileSchema = mongoose.model("Profile", {
     birthDate: Number,
     followingObjectId: [{ _id: mongoose.Types.ObjectId }],
     followersObjectId: [{ _id: mongoose.Types.ObjectId }],
+    languages: [{String}],
+    // Insigneas
+    // Nivel
+    sequencialDays: Number,
 });
 
 module.exports = ProfileSchema;
