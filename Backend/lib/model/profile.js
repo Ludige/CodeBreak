@@ -24,6 +24,7 @@ const ProfileSchema = mongoose.model("Profile", {
     // Insigneas
     // Nivel
     sequencialDays: Number,
+    hearts: Number,
 });
 
 module.exports = ProfileSchema;
