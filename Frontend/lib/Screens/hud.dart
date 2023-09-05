@@ -1,8 +1,8 @@
+import 'package:duocode/Screens/lessons_screen.dart';
 import 'package:duocode/Screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:duocode/Components/navigation_component.dart';
-import 'package:duocode/Screens/home_screen.dart';
 import 'package:get/get.dart';
 import '../Misc/GetX/navigator_index.dart';
 
@@ -16,7 +16,7 @@ class Hud extends StatefulWidget {
 class _HudState extends State<Hud> {
   NavigatorIndex currentIndex = Get.put(NavigatorIndex());
   final screens = const [
-    HomeScreen(),
+    LessonsScreen(),
     ProfileScreen(),
   ];
   // IndexedStack no body pra mover entre paginas sem ele recarregar

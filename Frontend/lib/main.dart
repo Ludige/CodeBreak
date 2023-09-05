@@ -1,11 +1,12 @@
-import 'package:duocode/Screens/hud.dart';
-import 'package:duocode/Screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'Screens/lessons_screen.dart';
+import 'Screens/profile_screen.dart';
+import 'Screens/hud.dart';
+
 import 'Misc/Themes/themes.dart';
 import 'Misc/languages.dart';
-import 'Screens/home_screen.dart';
 
 void main() {
   runApp(
@@ -21,7 +22,7 @@ void main() {
       routes: {
         //   '/splash': (context) => const ScreenSplash(),
         '/hud': (context) => const Hud(),
-        '/home': (context) => const HomeScreen(),
+        '/home': (context) => const LessonsScreen(),
         '/profile': (context) => const ProfileScreen(),
       },
       debugShowCheckedModeBanner: false,
