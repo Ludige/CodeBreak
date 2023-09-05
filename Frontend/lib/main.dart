@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'Screens/activity_screen.dart';
 import 'Screens/lessons_screen.dart';
 import 'Screens/profile_screen.dart';
 import 'Screens/hud.dart';
@@ -18,12 +19,13 @@ void main() {
       translations: Languages(),
       locale: Get.deviceLocale,
       fallbackLocale: const Locale('pt', 'BR'),
-      initialRoute: '/hud',
+      initialRoute: '/activity',
       routes: {
         //   '/splash': (context) => const ScreenSplash(),
         '/hud': (context) => const Hud(),
         '/home': (context) => const LessonsScreen(),
         '/profile': (context) => const ProfileScreen(),
+        '/activity': (context) => const ActivityScreen(),
       },
       debugShowCheckedModeBanner: false,
     ),

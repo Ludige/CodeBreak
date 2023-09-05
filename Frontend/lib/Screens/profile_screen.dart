@@ -1,6 +1,5 @@
-import 'package:duocode/Components/button_component.dart';
+import 'package:duocode/Components/text_button_component.dart';
 import 'package:duocode/Components/custom_box_component.dart';
-import 'package:duocode/Misc/Themes/customized_colors_global.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -38,7 +37,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             color: Colors.yellowAccent,
                           ),
                         ),
-                        child: ComponentButton(
+                        child: ComponentTextButton(
                           icon: Icons.add_a_photo_outlined,
                           iconColor: Colors.yellowAccent,
                           iconSize: 25,
@@ -157,7 +156,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ComponentCustomBox(
-                          child: ComponentButton(
+                          child: ComponentTextButton(
                             text: "Editar Perfil",
                             icon: Icons.person,
                             iconColor: Colors.tealAccent,
@@ -168,7 +167,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         ComponentCustomBox(
                           margin: const EdgeInsets.only(top: 12),
-                          child: ComponentButton(
+                          child: ComponentTextButton(
                             text: "00 Dias",
                             icon: Icons.code,
                             iconColor: Colors.greenAccent,

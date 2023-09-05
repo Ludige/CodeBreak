@@ -1,6 +1,9 @@
 import 'package:duocode/Components/button_component.dart';
+import 'package:duocode/Components/text_button_component.dart';
+import 'package:duocode/Components/text_button_component.dart';
 import 'package:duocode/Misc/Themes/customized_colors_global.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ActivityScreen extends StatefulWidget {
   const ActivityScreen({super.key});
@@ -19,7 +22,7 @@ class _HomeScreenState extends State<ActivityScreen> {
             children: [
               Row(
                 children: [
-                  ComponentButton(
+                  ComponentTextButton(
                     icon: Icons.arrow_back_ios,
                     iconColor: Colors.amber,
                     onPressed: () {},
@@ -35,9 +38,15 @@ class _HomeScreenState extends State<ActivityScreen> {
                     // formatos depender da lissão
                     ),
               ),
-              ComponentButton(
-                text: "Debugar",
-                onPressed: () {},
+              Container(
+                margin: const EdgeInsets.only(bottom: 16),
+                child: ComponentButton(
+                  text: "Debugar",
+                  textStyle: const TextStyle(fontSize: 16),
+                  onPressed: () {},
+                  width: Get.width * 0.5,
+                  height: Get.height * 0.04,
+                ),
               )
             ],
           )),
