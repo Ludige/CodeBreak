@@ -17,39 +17,45 @@ class _HomeScreenState extends State<ActivityScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: CustomizedColors.darkBackground,
-          body: Column(
-            children: [
-              Row(
-                children: [
-                  ComponentTextButton(
-                    icon: Icons.arrow_back_ios,
-                    iconColor: Colors.amber,
-                    onPressed: () {},
-                  )
-                ],
-              ),
-              Container(
-                  //Texto 1 o que fazer
-                  ),
-              Expanded(
-                child: Column(
-                    //Lissão
-                    // formatos depender da lissão
-                    ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(bottom: 16),
-                child: ComponentButton(
-                  text: "Debugar",
-                  textStyle: const TextStyle(fontSize: 16),
+        backgroundColor: CustomizedColors.darkBackground,
+        body: Column(
+          children: [
+            Row(
+              children: [
+                ComponentTextButton(
+                  icon: Icons.arrow_back_ios,
+                  iconColor: Colors.amber,
                   onPressed: () {},
-                  width: Get.width * 0.5,
-                  height: Get.height * 0.04,
                 ),
-              )
-            ],
-          )),
+                LinearProgressIndicator(
+                  value: 12,
+                  semanticsLabel: 'Linear progress indicator',
+                ),
+              ],
+            ),
+            const Text(
+              "",
+              style: TextStyle(),
+            ),
+            Expanded(
+              child: Column(
+                  //Lissão
+                  // formatos depender da lissão
+                  ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(bottom: 16),
+              child: ComponentButton(
+                text: "Debugar",
+                textStyle: const TextStyle(fontSize: 16),
+                onPressed: () {},
+                width: Get.width * 0.5,
+                height: Get.height * 0.04,
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

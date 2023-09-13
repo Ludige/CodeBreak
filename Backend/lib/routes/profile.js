@@ -3,7 +3,7 @@ const router = express.Router();
 
 const authVerify = require("../../authVerify");
 
-const controller = require("../controllers/controllerProfile.js");
+const controller = require("../controllers/profile.js");
 
 router.post("/create", controller.create);
 router.post(
