@@ -1,5 +1,6 @@
 const Lesson = require("../model/lesson");
 const bcrypt = require("bcrypt");
+const Exercice = require("./exercice");
 require("dotenv").config({ path: "variables.env" });
 
 module.exports = {
@@ -20,9 +21,25 @@ module.exports = {
         }
     },
     addExercice: async function (req, res, next) {
+        let lesson = await Lesson.findById(TODO);
+        let exercice = await Exercice.findById(TODO);
+        lesson.exercices.push(exercice);
 
+        //TODO Update lesson
+        res.status(200).json(lesson);
     },
-    removeExercice:async function (req, res, next) {
+    deleteLesson:async function (req, res, next) {
+        try {
+            let lesson = await Lesson.findById(req.params);
 
+            if (!lesson) {
+                res.status(404).json({ msg: "Atividade não encontrada" });
+            }
+            await Lesson.
+            findOneAndDelete({ _id: exercice });
+            res.status(200).json({});
+        } catch (error) {
+            res.status(500).json({ msg: error.message });
+        }
     },
 };

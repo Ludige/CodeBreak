@@ -4,26 +4,6 @@ require("dotenv").config({ path: "variables.env" });
 
 module.exports = {
     create: async function (req, res, next) {
-        /*  
-            #swagger.tags = ['Profile']
-            #swagger.summary = 'Criando um Perfil'
-         * #swagger.security = []
-             #swagger.parameters['Profile'] = { 
-                in: 'body', 
-                description: 'Adiciona um novo Perfil ao Banco de Dados', 
-                required: true,
-                schema: { 
-                    name: "Nome Exemplo",
-                    email: "email_exemplo@gmail.com",
-                    password: "senhaexemplo123",
-                    creationDate: "01012000"
-                } 
-            }
-            #swagger.responses[404] = {
-                description: "Email ou Apelido já estão em uso"
-            }
-        */
-
         try {
             let reqProfile = req.body;
             reqProfile.creationDate = parseInt(reqProfile.creationDate);
@@ -47,12 +27,6 @@ module.exports = {
         }
     },
     followById: async function (req, res, next) {
-        /**
-         * #swagger.tags = ['Profile']
-            #swagger.summary = 'Segue o Perfil especificado pelo ID'
-         
-         */
-
         try {
             const followObjectId = req.params.followObjectId;
             const idToken = req._idToken;
@@ -109,14 +83,6 @@ module.exports = {
         }
     },
     getAll: async function (req, res, next) {
-        /*
-            #swagger.tags = ['Profile']
-            #swagger.summary = 'Recupera todos os Perfis do Banco de Dados'
-            #swagger.responses[404] = {
-                description: "Nenhum perfil encontrado no banco de dados",
-            }
-        */
-
         try {
             let profiles = await Profile.find();
             if (profiles.length == 0) {
@@ -145,10 +111,6 @@ module.exports = {
         }
     },
     getProfileByToken: async function (req, res, next) {
-        /**
-            #swagger.tags = ['Profile']
-            #swagger.summary = 'Recupera Perfil especificado pelo Token'
-         */
         const idToken = req._idToken;
 
         try {
@@ -164,24 +126,6 @@ module.exports = {
         }
     },
     updateByToken: async function (req, res, next) {
-        /*
-            #swagger.tags = ['Profile']
-            #swagger.summary = 'Atualiza o Perfil indicado pelo Token'
-            #swagger.responses[404] = {
-                description: "Nenhum Perfil encontrado no Banco de Dados",
-            }
-            #swagger.parameters['Profile'] = { 
-                in: 'body', 
-                description: 'Atualiza um Perfil do Banco de Dados', 
-                required: true,
-                schema: { 
-                    name: "Nome Exemplo",
-                    email: "email_exemplo@gmail.com",
-                    password: "senhaexemplo123",
-                    creationDate: "01012000"
-                } 
-            }
-        */
         try {
             const _id = req._idToken;
             const updateProfile = Profile(req.body);
@@ -205,21 +149,6 @@ module.exports = {
         }
     },
     addLanguage: async function (req, res, next) {
-        /*
-            #swagger.tags = ['Profile']
-            #swagger.summary = 'Adiciona uma lingua ao Perfil'
-            #swagger.responses[404] = {
-                description: "Nenhum Perfil encontrado no Banco de Dados",
-            }
-            #swagger.parameters['Profile'] = { 
-                in: 'body', 
-                description: 'Atualiza um Perfil do Banco de Dados', 
-                required: true,
-                schema: { 
-                    language: "Python"
-                } 
-            }
-        */
         try {
             const _id = req._idToken;
 
@@ -238,13 +167,6 @@ module.exports = {
         }
     },
     deleteByID: async function (req, res, next) {
-        /**
-         * #swagger.tags = ['Profile']
-         #swagger.summary = 'Remove o Perfil especificado pelo ID'
-         #swagger.responses[404] = {
-                description: "Perfil não encontrado!",
-            }
-         */
         try {
             let profile = await Profile.findById(req.params);
 
