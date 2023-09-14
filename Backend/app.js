@@ -26,9 +26,9 @@ app.use(express.json({ limit: "2000mb" }));
 app.use("/profile", profileRouter);
 
 mongoose
-    .connect(process.env.URL_MONGO_DB)
+    .connect(process.env.DATABASE)
     .then(() => {
-        app.listen(process.env.PORT_API, process.env.HOST);
+        app.listen(process.env.PORT, process.env.HOST);
         console.log("Banco conectado com sucesso!");
     })
     .catch(function (err) {
