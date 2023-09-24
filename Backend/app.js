@@ -4,7 +4,6 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 require("dotenv").config({ path: "./variables.env" });
-const jwt = require("jsonwebtoken");
 
 // const authVerify = require("./authVerify");
 

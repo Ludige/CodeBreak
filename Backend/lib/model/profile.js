@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-
 const ProfileSchema = mongoose.model("Profile", {
     name: { type: String, trim: true, required: true },
     email: {

@@ -5,12 +5,12 @@ require("dotenv").config({ path: "variables.env" });
 module.exports = {
     create: async function (req, res, next) {
         try {
-            let reqProfile = req.body;
-            reqProfile.creationDate = parseInt(reqProfile.creationDate);
-            reqProfile.password = await bcrypt.hash(
-                reqProfile.password,
-                parseInt(process.env.SALT)
-            );
+            let reqProfile = req.params;
+            // reqProfile.creationDate = parseInt(reqProfile.creationDate);
+            // reqProfile.password = await bcrypt.hash(
+            //     reqProfile.password,
+            //     parseInt(process.env.SALT)
+            // );
 
             let resProfile = await Profile.create(Profile(reqProfile));
             resProfile.password = undefined;
