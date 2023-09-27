@@ -5,30 +5,25 @@ require("dotenv").config({ path: "variables.env" });
 module.exports = {
     create: async function (req, res, next) {
         try {
-            let reqProfile = req.params;
-            // reqProfile.creationDate = parseInt(reqProfile.creationDate);
-            // reqProfile.password = await bcrypt.hash(
-            //     reqProfile.password,
-            //     parseInt(process.env.SALT)
-            // );
-
+            let reqProfile = req.body;
+            reqProfile.creationDate = parseInt(reqProfile.creationDate);
+            reqProfile.password = await bcrypt.hash(
+                reqProfile.password,
+                parseInt(process.env.SALT)
+            );            
             let resProfile = await Profile.create(Profile(reqProfile));
             resProfile.password = undefined;
 
             res.status(200).json(resProfile);
         } catch (error) {
-            if (error.code == 11000) {
-                res.status(409).json({
-                    msg: "Email ou Apelido já estão em uso! Tente outro!",
-                });
-            } else {
+            error.code == 11000 ?
+                res.status(409).json({msg: "Email ou Apelido já estão em uso! Tente outro!"}):
                 res.status(500).json({ msg: error.message });
-            }
         }
     },
     followById: async function (req, res, next) {
         try {
-            const followObjectId = req.params.followObjectId;
+            const followObjectId = req.body.followObjectId;
             const idToken = req._idToken;
             let msgRes = "";
             let followProfile;
@@ -85,27 +80,22 @@ module.exports = {
     getAll: async function (req, res, next) {
         try {
             let profiles = await Profile.find();
-            if (profiles.length == 0) {
+
+            profiles.length != 0 ?
+                res.status(200).json(profiles):
                 res.status(404).json({ msg: "Nenhum Perfil encontrado" });
-            } else {
-                res.status(200).json(profiles);
-            }
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
     },
     getById: async function (req, res, next) {
-        /*  
-            #swagger.tags = ['Profile']
-            #swagger.summary = 'Recupera Perfil especificado pelo ID'
-        */
-        const _id = req.params;
+        const _id = req.body;
         try {
             let profile = await Profile.findById(_id);
-
-            profile == null
-                ? res.status(404).json({ msg: "Perfil não encontrado" })
-                : res.status(200).json(profile);
+ 
+            profile == null ?
+                res.status(404).json({ msg: "Perfil não encontrado" }):
+                res.status(200).json(profile);
         } catch (error) {
             res.status(500).json({ msg: error.message });
         }
@@ -118,9 +108,9 @@ module.exports = {
                 password: 0,
             });
 
-            profile == null
-                ? res.status(404).json({ msg: "Perfil não encontrado" })
-                : res.status(200).json(profile);
+            profile == null ?
+                res.status(404).json({ msg: "Perfil não encontrado" }):
+                res.status(200).json(profile);
         } catch (error) {
             res.status(500).json({ msg: error.message });
         }
@@ -152,13 +142,13 @@ module.exports = {
         try {
             const _id = req._idToken;
 
-            let profile = await Profile.findById(req.params.profileObjectId);
+            let profile = await Profile.findById(req.body.profileObjectId);
             
             if (!profile) {
                 res.status(404).json({ msg: "Perfil não encontrado" });
                 return;
             }
-            //TODO consertar o req body daqui
+            //TODO adicionar linguas e depois colocar aqui pra só aceitar as exitentes
             profile.languages.push(req.body);
             await profile.save();
             res.status(200).json(profile);
@@ -168,13 +158,14 @@ module.exports = {
     },
     deleteByID: async function (req, res, next) {
         try {
-            let profile = await Profile.findById(req.params);
+            let profile = await Profile.findById(req.body);
 
-            if (!profile) {
+            if (profile) {
+                await Profile.findOneAndDelete({ _id: profile });
+                res.status(200).json({});
+            }else{
                 res.status(404).json({ msg: "Perfil não encontrado" });
             }
-            await Profile.findOneAndDelete({ _id: profile });
-            res.status(200).json({});
         } catch (error) {
             res.status(500).json({ msg: error.message });
         }

@@ -3,9 +3,9 @@ const validator = require("validator");
 
 const ExerciceSchema = mongoose.model("Profile", {
     title: String,
-    question: String,
+    questionText: String,
     rightAnswer: [{String}],
-    wrongAnswer: [{String}],
+    wrongAnswers: [{String}],
     possibleAnswers: [{String}],//All answers right and wrong
 });
 

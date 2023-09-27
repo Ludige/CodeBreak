@@ -8,10 +8,10 @@ const ProfileSchema = mongoose.model("Profile", {
         unique: true,
         required: true,
         trim: true,
-        //  validate:{
-        //     validator: validator.isEmail,
-        //     message: "Email invalido"
-        //  }
+        validate:{
+            validator: validator.isEmail,
+            message: "Email invalido"
+        }
     },
     password: { type: String, trim: true, required: true },
     image: String,
