@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-const ExerciceSchema = mongoose.model("Profile", {
+const ExerciceSchema = mongoose.model("Exercice", {
     title: String,
     questionText: String,
     rightAnswer: [{String}],

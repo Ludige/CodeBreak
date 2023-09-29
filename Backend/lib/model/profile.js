@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
+const LanguageSchema = require("./language");
 
 const ProfileSchema = mongoose.model("Profile", {
     name: { type: String, trim: true, required: true },
@@ -19,7 +20,7 @@ const ProfileSchema = mongoose.model("Profile", {
     birthDate: Number,
     followingObjectId: [{ _id: mongoose.Types.ObjectId }],
     followersObjectId: [{ _id: mongoose.Types.ObjectId }],
-    languages: [{String}],
+    languages: [LanguageSchema.schema],
     // Insigneas
     // Nivel
     sequencialDays: Number,
