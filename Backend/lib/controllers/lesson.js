@@ -90,7 +90,7 @@ module.exports = {
             let lesson = await Lesson.findById(req.body);
 
             if (!lesson) {
-                res.status(404).json({ msg: "Atividade não encontrada" });
+                res.status(404).json({ msg: "Lição não encontrada" });
             }
             await Lesson.
             findOneAndDelete({ _id: exercice });
