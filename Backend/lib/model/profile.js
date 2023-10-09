@@ -21,6 +21,7 @@ const ProfileSchema = mongoose.model("Profile", {
     followingObjectId: [{ _id: mongoose.Types.ObjectId }],
     followersObjectId: [{ _id: mongoose.Types.ObjectId }],
     languages: [LanguageSchema.schema],
+    //completedExercices
     // Insigneas
     // Nivel
     sequencialDays: Number,

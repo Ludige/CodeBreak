@@ -6,10 +6,11 @@ const router = express.Router();
 const controller = require("../controllers/exercice");
 
 router.post("/create", controller.create);
+router.get("/getAll", controller.getAll);
 router.get("/getById/:_id", controller.getById);
-router.put("/update", controller.updateByToken);
+router.put("/update", controller.update);
 router.put("/updateRightAnswer", controller.changeRightAnswer);
-router.put("/updateWrongAnswer", controller.changeRightAnswer);
+router.put("/updateWrongAnswer", controller.changeWrongAnswer);
 router.delete("/deleteById/:_id",  controller.deleteByID);
 
 module.exports = router;

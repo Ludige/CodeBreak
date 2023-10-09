@@ -7,10 +7,10 @@ const controller = require("../controllers/lesson");
 
 router.post("/create", controller.create);
 router.get("/getById/:_id", controller.getById);
-router.put("/update", controller.updateByToken);
+router.put("/update", controller.update);
 router.put("/addExercice", controller.addExercice);
 router.put("/removeExercice", controller.removeExercice);
-router.delete("/deleteById/:_id",  controller.deleteByID);
+router.delete("/deleteById/:_id",  controller.delete);
 
 module.exports = router;
 

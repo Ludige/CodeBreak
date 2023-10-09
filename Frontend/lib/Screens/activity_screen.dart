@@ -1,6 +1,5 @@
 import 'package:duocode/Components/button_component.dart';
 import 'package:duocode/Components/text_button_component.dart';
-import 'package:duocode/Components/text_button_component.dart';
 import 'package:duocode/Misc/Themes/customized_colors_global.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +12,7 @@ class ActivityScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<ActivityScreen> {
+  String texto = "abçdpsajdsajdkla\ndshajshdlahsdlas";
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -27,10 +27,10 @@ class _HomeScreenState extends State<ActivityScreen> {
                   iconColor: Colors.amber,
                   onPressed: () {},
                 ),
-                LinearProgressIndicator(
-                  value: 12,
-                  semanticsLabel: 'Linear progress indicator',
-                ),
+                // LinearProgressIndicator(
+                //   value: 12,
+                //   semanticsLabel: 'Linear progress indicator',
+                // ),
               ],
             ),
             const Text(

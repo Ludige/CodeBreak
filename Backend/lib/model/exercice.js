@@ -7,6 +7,7 @@ const ExerciceSchema = mongoose.model("Exercice", {
     rightAnswer: [{String}],
     wrongAnswers: [{String}],
     possibleAnswers: [{String}],//All answers right and wrong
+    isQuestion: Boolean,
 });
 
 module.exports = ExerciceSchema;
