@@ -8,15 +8,31 @@ module.exports = {
         try {
             let reqExercice = req.body;
 
-            let resExercice = await Profile.create(Profile(reqExercice));
-            resExercice.possibleAnswers.push(resExercice.wrongAnswers);
-            resExercice.possibleAnswers.push(resExercice.rightAnswer);
+            let resExercice = await Exercice.create(Exercice(reqExercice));
+            print(resExercice);
+            if(resExercice.rightAnswer == null){
+                resExercice.isQuestion = true;
+                resExercice.possibleAnswers.push(resExercice.wrongAnswers);
+                resExercice.possibleAnswers.push(resExercice.rightAnswer);
+                print("2:"+resExercice);
+            }
             
             res.status(200).json(resExercice);
         } catch (error) {
             error.code == 11000 ?
                 res.status(409).json({msg: "Falha ao criar exercicio"}):
                 res.status(500).json({ msg: error.message });
+        }
+    },
+    getAll: async function (req, res, next) {
+        try {
+            let exercices = await Exercice.find();
+
+            exercices.length != 0 ?
+                res.status(200).json(exercices):
+                res.status(404).json({ msg: "Nenhum exercicio encontrado" });
+        } catch (error) {
+            res.status(500).json({ error: error.message });
         }
     },
     getById: async function (req, res, next) {
@@ -26,7 +42,7 @@ module.exports = {
 
             exercice == null
                 ? res.status(404).json({ msg: "Exercicio não encontrado" })
-                : res.status(200).json(profile);
+                : res.status(200).json(exercice);
         } catch (error) {
             res.status(500).json({ msg: error.message });
         }

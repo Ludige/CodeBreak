@@ -8,7 +8,7 @@ module.exports = {
         try {
             let reqLesson = req.body;
 
-            let resLesson = await Profile.create(Profile(reqLesson));
+            let resLesson = await Lesson.create(Lesson(reqLesson));
             res.status(200).json(resLesson);
         } catch (error) {
             if (error.code == 11000) {
@@ -27,7 +27,7 @@ module.exports = {
 
             lesson == null?
                 res.status(404).json({ msg: "Lição não encontrada" }):
-                res.status(200).json(profile);
+                res.status(200).json(lesson);
         } catch (error) {
             res.status(500).json({ msg: error.message });
         }
