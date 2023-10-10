@@ -7,16 +7,16 @@ module.exports = {
         //padrão de nome: Linguagem - Exercicio Numero - Nome
         try {
             let reqExercice = req.body;
-
-            let resExercice = await Exercice.create(Exercice(reqExercice));
-            print(resExercice);
-            if(resExercice.rightAnswer == null){
-                resExercice.isQuestion = true;
-                resExercice.possibleAnswers.push(resExercice.wrongAnswers);
-                resExercice.possibleAnswers.push(resExercice.rightAnswer);
-                print("2:"+resExercice);
-            }
+            reqExercice.possibleAnswers = [];
             
+            if(reqExercice.rightAnswer != null){
+                reqExercice.isQuestion = true;
+                reqExercice.rightAnswer.forEach(answer => {reqExercice.possibleAnswers.push(answer);});
+                reqExercice.wrongAnswers.forEach(answer => {reqExercice.possibleAnswers.push(answer);});
+            }else{
+                reqExercice.isQuestion = false;
+            }
+            let resExercice = await Exercice.create(Exercice(reqExercice));
             res.status(200).json(resExercice);
         } catch (error) {
             error.code == 11000 ?
