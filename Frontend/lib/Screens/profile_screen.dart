@@ -1,5 +1,6 @@
 import 'package:duocode/Components/text_button_component.dart';
 import 'package:duocode/Components/custom_box_component.dart';
+import 'package:duocode/Misc/Themes/pattern_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -34,12 +35,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         decoration: BoxDecoration(
                           color: Colors.black38,
                           border: Border.all(
-                            color: Colors.yellowAccent,
+                            color: Colors.greenAccent,
                           ),
                         ),
                         child: ComponentTextButton(
                           icon: Icons.add_a_photo_outlined,
-                          iconColor: Colors.yellowAccent,
+                          iconColor: PatternColors.springGreen,
                           iconSize: 25,
                           onPressed: () {},
                         )),
@@ -71,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ComponentCustomBox(
                                   height: 55,
                                   width: 13.5,
-                                  backgroundColor: Colors.yellow,
+                                  backgroundColor: PatternColors.springGreen,
                                   margin: const EdgeInsets.symmetric(
                                       horizontal: 10),
                                 ),
@@ -90,8 +91,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ],
               ),
-              const Divider(
-                color: Colors.yellowAccent,
+              Divider(
+                color: Colors.green[700],
                 thickness: 0.5,
               ),
               Row(
@@ -104,12 +105,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       //Left
                       children: [
                         ComponentCustomBox(
-                          height: 100,
+                          height: 110,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                margin: const EdgeInsets.only(top: 6, left: 12),
+                                margin: const EdgeInsets.only(
+                                    top: 10, bottom: 6, left: 12),
                                 child: ComponentText(
                                   text: "Linguas",
                                   color: Colors.white,
@@ -123,6 +125,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     const EdgeInsets.only(left: 10, right: 10),
                                 child: ListView.separated(
                                   scrollDirection: Axis.horizontal,
+                                  
                                   itemCount: 5,
                                   separatorBuilder: (context, index) {
                                     // Space Between
@@ -133,7 +136,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       width: 12,
                                       margin: const EdgeInsets.symmetric(
                                           vertical: 5),
-                                      backgroundColor: Colors.redAccent,
+                                      backgroundColor:
+                                          PatternColors.springGreen,
                                     );
                                   },
                                 ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../Misc/GetX/navigator_index.dart';
+import '../Misc/Themes/pattern_colors.dart';
 
 class BottomNavigationComponent extends StatefulWidget {
   const BottomNavigationComponent({super.key});
@@ -29,19 +30,19 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
       onTap: (value) => setState(() {
         currentIndex.index.value = value;
       }),
-      items: const [
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.code, color: Colors.yellowAccent),
+          icon: Icon(Icons.code, color: PatternColors.springGreen),
           label: "Home",
-          backgroundColor: Color.fromARGB(255, 15, 15, 15),
+          backgroundColor: Color.fromARGB(255, 95, 95, 95),
         ),
         BottomNavigationBarItem(
           icon: Icon(
             Icons.person,
-            color: Color.fromARGB(255, 255, 255, 0),
+            color: PatternColors.springGreen,
           ),
           label: "Profile",
-          backgroundColor: Color.fromARGB(255, 15, 15, 15),
+          backgroundColor: Color.fromARGB(255, 95, 95, 95),
         )
       ],
     );
