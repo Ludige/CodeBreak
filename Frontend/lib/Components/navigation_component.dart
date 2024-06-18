@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../Misc/GetX/navigator_index.dart';
-import '../Misc/Themes/pattern_colors.dart';
 
 class BottomNavigationComponent extends StatefulWidget {
   const BottomNavigationComponent({super.key});
@@ -22,27 +21,25 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
       // TODO >> transformar Cores e tamanhos em widget
       backgroundColor: Colors.blue,
       iconSize: 32,
-      selectedItemColor: const Color.fromARGB(255, 148, 240, 151),
-      unselectedItemColor: const Color.fromARGB(255, 220, 250, 220),
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
+      selectedItemColor: Colors.purpleAccent,
+
       currentIndex: currentIndex.index.value,
       onTap: (value) => setState(() {
         currentIndex.index.value = value;
       }),
-      items: [
+      items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.code, color: PatternColors.springGreen),
+          icon: Icon(Icons.code, color: Colors.purpleAccent),
           label: "Home",
-          backgroundColor: Color.fromARGB(255, 95, 95, 95),
+          backgroundColor: Colors.white,
         ),
         BottomNavigationBarItem(
           icon: Icon(
             Icons.person,
-            color: PatternColors.springGreen,
+            color: Colors.purpleAccent,
           ),
           label: "Profile",
-          backgroundColor: Color.fromARGB(255, 95, 95, 95),
+          backgroundColor: Colors.white,
         )
       ],
     );

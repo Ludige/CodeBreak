@@ -1,3 +1,4 @@
+import 'package:duocode/Screens/config_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,6 +27,7 @@ void main() {
         '/home': (context) => const LessonsScreen(),
         '/profile': (context) => const ProfileScreen(),
         '/activity': (context) => const ActivityScreen(),
+        '/configProfile': (context) => const ConfigutarionProfileScreen(),
       },
       debugShowCheckedModeBanner: false,
     ),

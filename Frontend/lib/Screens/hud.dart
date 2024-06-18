@@ -22,7 +22,7 @@ class _HudState extends State<Hud> {
   // IndexedStack no body pra mover entre paginas sem ele recarregar
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return SizedBox(
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Obx(() {

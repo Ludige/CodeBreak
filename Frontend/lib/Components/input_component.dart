@@ -1,0 +1,129 @@
+// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class ComponentInput extends StatefulWidget {
+  String? labelText;
+  String? hintText;
+  TextEditingController controller;
+  String? Function(String?)? validator;
+  bool nullValidator;
+  double fontSize;
+  var suffixIcon;
+  double width;
+  int minLines;
+  int maxLines;
+  int? maxLenght;
+  bool obscureText = false;
+  Color? focusedBorderColor;
+  Color? unfocusedBorderColor;
+
+  ComponentInput({
+    super.key,
+    this.labelText,
+    required this.controller,
+    this.hintText,
+    this.fontSize = 16,
+    this.suffixIcon,
+    this.maxLenght = 90,
+    this.minLines = 1,
+    this.maxLines = 1,
+    this.validator,
+    this.nullValidator = true,
+    this.obscureText = false,
+    this.width = 7.5,
+    this.focusedBorderColor,
+    this.unfocusedBorderColor,
+  });
+
+  @override
+  State<ComponentInput> createState() => _ComponentInputState();
+}
+
+class _ComponentInputState extends State<ComponentInput> {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: Get.width * (widget.width / 10),
+      height: 64,
+      child: TextFormField(
+        //miscelaneous
+        controller: widget.controller,
+        obscureText: widget.obscureText,
+        //tamanho
+        maxLength: widget.maxLenght,
+        minLines: widget.obscureText ? 1 : widget.minLines,
+        maxLines: widget.obscureText ? 1 : widget.maxLines,
+        //Style Text
+        style: TextStyle(
+          fontFamily: 'Imprima-Regular',
+          fontSize: widget.fontSize,
+        ),
+
+        decoration: InputDecoration(
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          alignLabelWithHint: true,
+          hintText: widget.hintText,
+          labelText: widget.labelText,
+          //Style
+          labelStyle: TextStyle(
+            fontSize: widget.fontSize,
+          ),
+          hintStyle: TextStyle(
+            fontSize: widget.fontSize,
+          ),
+          counterStyle: TextStyle(
+            color:
+                widget.maxLenght! >= 100 ? Colors.purple : Colors.transparent,
+          ),
+          suffixIcon: widget.suffixIcon == null
+              ? null
+              : Padding(
+                  padding: const EdgeInsetsDirectional.only(end: 12),
+                  child: widget.suffixIcon,
+                ),
+          //Borda Padrão
+          enabledBorder: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(Radius.circular(7)),
+            borderSide: BorderSide(
+              color: widget.unfocusedBorderColor ?? Colors.grey.shade600,
+              width: 0.45,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(Radius.circular(7)),
+            borderSide: BorderSide(
+              color: widget.focusedBorderColor ?? Colors.deepPurple,
+              width: 1.2,
+            ),
+          ),
+          //Borda do Validador
+          errorBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(7)),
+            borderSide: BorderSide(
+              color: Colors.red,
+              width: 0.45,
+            ),
+          ),
+          focusedErrorBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(7)),
+            borderSide: BorderSide(
+              color: Colors.red,
+              width: 1.2,
+            ),
+          ),
+        ),
+        validator: widget.nullValidator
+            ? (value) {
+                if (value!.isEmpty) {
+                  return 'required'.tr;
+                }
+                return null;
+              }
+            : widget.validator,
+      ),
+    );
+  }
+}
