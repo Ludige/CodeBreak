@@ -8,10 +8,10 @@ class ApiConnections {
   static final Map<String, String> _headerDefault = {
     'Content-Type': 'application/json; charset=UTF-8',
   };
-  static final Map<String, String> _headerWithTokenWithTime = {
-    'Content-Type': 'application/json; charset=UTF-8',
-    'x-access-time': DateTime.now().millisecondsSinceEpoch.toString()
-  };
+  // static final Map<String, String> _headerWithTokenWithTime = {
+  //   'Content-Type': 'application/json; charset=UTF-8',
+  //   'x-access-time': DateTime.now().millisecondsSinceEpoch.toString()
+  // };
 
   static Future<Profile> createProfile(Profile profile) async {
     final response = await http.post(
