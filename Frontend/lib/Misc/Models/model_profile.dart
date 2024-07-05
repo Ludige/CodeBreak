@@ -1,12 +1,15 @@
+import 'dart:ffi';
+
 class Profile {
   String? id;
   late String name;
   late String email;
   late String password;
   String? image;
-  int? birthDate;
-  int? creationDate;
+  String? birthDate;
+  late String creationDate;
 
+//TODO MUDAR INT de DATAS DO BANCO PRA STRING
   Profile({
     this.id,
     required this.name,

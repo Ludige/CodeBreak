@@ -13,6 +13,7 @@ class ActivityScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<ActivityScreen> {
   String texto = "abçdpsajdsajdkla\ndshajshdlahsdlas";
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,12 +38,12 @@ class _HomeScreenState extends State<ActivityScreen> {
               "",
               style: TextStyle(),
             ),
-            Expanded(
-              child: Column(
-                  //Lissão
-                  // formatos depender da lissão
-                  ),
-            ),
+            // Expanded(
+            //   child: Column(
+            //       //Lissão
+            //       // formatos depender da lissão
+            //       ),
+            // ),
             Container(
               margin: const EdgeInsets.only(bottom: 16),
               child: ComponentButton(

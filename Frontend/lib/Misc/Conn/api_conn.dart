@@ -21,7 +21,7 @@ class ApiConnections {
         'name': profile.name,
         'email': profile.email,
         'password': profile.password,
-        'creationDate': profile.creationDate.toString(),
+        'creationDate': profile.creationDate,
       }),
     );
     if (response.statusCode == 200) {
