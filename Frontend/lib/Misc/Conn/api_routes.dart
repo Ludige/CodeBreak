@@ -1,8 +1,15 @@
 class APIRoutes {
-  //TODO> alterar para acesso remoto
   static String apiUrl = 'http://192.168.18.55:7778';
-  //meu ip final  55: 192.168.18.55
+
+
   static String createProfile = '/profile/create';
+  static String followProfileById = '/profile/follow';
+  static String updateProfileByToken = '/profile/update';
+  static String updateProfileById = '/profile/getProfileByToken';
+
+  static String getProfileByIdId(id) {
+    return '/profile/getById/$id';
+  }
 
   static String deleteProfileById(id) {
     return '/profile/deleteById/$id';
@@ -10,4 +17,13 @@ class APIRoutes {
 
   //Exercices
   static String getAllExercice = '/exercice/getAll';
+  
+  static String getExerciceByIdId(id) {
+    return '/exercice/getById/$id';
+  }
+
+  //Lesson
+  static String getLessonById(id) {
+    return '/lesson/deleteById/$id';
+  }
 }

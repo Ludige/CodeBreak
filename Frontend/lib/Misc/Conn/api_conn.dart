@@ -30,6 +30,8 @@ class ApiConnections {
       print(
           "Error ${response.statusCode.toString()}: ${response.body.toString()}");
       return Profile.defaultGetX();
-    }
+    }    
   }
+
+  
 }
