@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
+import '../Models/model_exercice.dart';
 import '../Models/model_profile.dart';
 import '../token.dart';
 import 'api_routes.dart';
@@ -39,7 +40,7 @@ class ApiConnections {
   }
 
 //TODO Fazer a rota de update de perfil, pedir ajuda ao rafael quando ele puder, sem urgencia, não precisa pra entregar
-  
+
   static Future<bool> followProfile(String profileId) async {
     final response = await http.post(
       Uri.parse(APIRoutes.apiUrl + APIRoutes.followProfileById(profileId)),
@@ -73,7 +74,7 @@ class ApiConnections {
     }
   }
 
-static Future<bool> deleteProfile(String id) async {
+  static Future<bool> deleteProfile(String id) async {
     final response = await http.delete(
         Uri.parse(APIRoutes.apiUrl + APIRoutes.deleteProfileById(id)),
         headers: _headerWithTokenWithTime);
@@ -83,8 +84,48 @@ static Future<bool> deleteProfile(String id) async {
     } else {
       print(
           "Error ${response.statusCode.toString()}: ${response.body.toString()}");
-          //TODO trow expetion
+      //TODO trow expetion
       return false;
     }
   }
+
+  //Exercices
+  static Future<Exercice> getExerciceById(id) async {
+    final response = await http.get(
+      Uri.parse(APIRoutes.apiUrl + APIRoutes.getExerciceById(id)),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'x-access-token': _token.token.value
+      },
+    );
+    if (response.statusCode == 200) {
+      var exercicesMap = jsonDecode(response.body);
+
+      return Exercice.fromMap(exercicesMap);
+    } else {
+      print(
+          "Error ${response.statusCode.toString()}: ${response.body.toString()}");
+      throw Exception('Falha ao recuperar exercicios');
+    }
+  }
+
+  //Lessons
+  //  static Future<Lesson> getLessonById(id) async {
+  //   final response = await http.get(
+  //     Uri.parse(APIRoutes.apiUrl + APIRoutes.getLessonById(id)),
+  //     headers: <String, String>{
+  //       'Content-Type': 'application/json; charset=UTF-8',
+  //       'x-access-token': _token.token.value
+  //     },
+  //   );
+  //   if (response.statusCode == 200) {
+  //     var lessonsMap = jsonDecode(response.body);
+
+  //     return Lessons.fromMap(lessonsMap);
+  //   } else {
+  //     print(
+  //         "Error ${response.statusCode.toString()}: ${response.body.toString()}");
+  //     throw Exception('Falha ao recuperar lições');
+  //   }
+  // }
 }

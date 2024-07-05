@@ -20,7 +20,7 @@ class APIRoutes {
   //Exercices
   // static String getAllExercice = '/exercice/getAll';
   
-  static String getExerciceByIdId(id) {
+  static String getExerciceById(id) {
     return '/exercice/getById/$id';
   }
 

@@ -25,10 +25,10 @@ class Exercice {
   }
 
   Map<String, dynamic> toMap() => {
-        "title": title,
-        "rightAnswer": rightAnswer,
-        "wrongAnswer": wrongAnswer,
-        "possibleAnswers": possibleAnswers,
-        "isQuestion": isQuention,
-      };
+    "title": title,
+    "rightAnswer": rightAnswer,
+    "wrongAnswer": wrongAnswer,
+    "possibleAnswers": possibleAnswers,
+    "isQuestion": isQuention,
+  };
 }
