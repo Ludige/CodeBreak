@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class ComponentTextButton extends StatefulWidget {
   String? text;
   IconData? icon;

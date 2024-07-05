@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class Profile {
   String? id;
   late String name;

@@ -1,9 +1,9 @@
-import 'package:duocode/Components/button_component.dart';
+
 import 'package:duocode/Components/input_component.dart';
-import 'package:duocode/Components/text_button_component.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class ComponentEditText extends StatefulWidget {
   double textFontSize;
   TextOverflow overflow;
