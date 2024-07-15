@@ -1,5 +1,3 @@
-import 'model_language.dart';
-
 class Profile {
   String? id;
   late String name;
