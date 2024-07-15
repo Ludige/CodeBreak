@@ -1,5 +1,7 @@
 import 'package:duocode/Components/text_button_component.dart';
 import 'package:duocode/Components/custom_box_component.dart';
+import 'package:duocode/Misc/Conn/api_conn.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,6 +15,8 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  // LoggedProfile currentProfile = Get.put(LoggedProfile());
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -52,10 +56,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Padding(
                             padding: const EdgeInsets.only(
                                 top: 30, right: 16, left: 12),
-                            child: ComponentText(
-                              fontSize: 20,
-                              overflow: TextOverflow.visible,
-                              text: "Feliperson Mottos",
+                            child: FutureBuilder(
+                              future: ApiConnections.getProfileById(
+                                  "66870325e2941cd763b32621"),
+                              builder: (context, profile) {
+                                if (profile.hasData) {
+                                  print("OWWNW");
+                                  return ComponentText(
+                                    fontSize: 20,
+                                    overflow: TextOverflow.visible,
+                                    text: profile.data!.name,
+                                  );
+                                } else {
+                                  print(profile);
+                                  return ComponentText(
+                                    fontSize: 20,
+                                    overflow: TextOverflow.visible,
+                                    text: "Nenhum Perfil",
+                                  );
+                                }
+                              },
                             ),
                           ),
                           Padding(
