@@ -27,7 +27,7 @@ class ApiConnections {
         'name': profile.name,
         'email': profile.email,
         'password': profile.password,
-        'creationDate': profile.creationDate,
+        'creationDate': profile.creationDate.toString(),
       }),
     );
     if (response.statusCode == 200) {
@@ -55,7 +55,7 @@ class ApiConnections {
     }
   }
 
-  static Future<Profile> getProfileById(id) async {
+  static Future<Profile> getProfileById(String id) async {
     final response = await http.get(
       Uri.parse(APIRoutes.apiUrl + APIRoutes.getProfileById(id)),
       headers: <String, String>{
@@ -65,11 +65,11 @@ class ApiConnections {
     );
     if (response.statusCode == 200) {
       var profilesMap = jsonDecode(response.body);
-
+      print(profilesMap);
       return Profile.fromMap(profilesMap);
     } else {
       print(
-          "Error ${response.statusCode.toString()}: ${response.body.toString()}");
+          "id: $id Error ${response.statusCode.toString()}: ${response.body.toString()}");
       throw Exception('Falha ao recuperar perfis');
     }
   }

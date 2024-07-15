@@ -1,11 +1,9 @@
-import 'dart:ffi';
-
 class Exercice {
-  String? title;
-  late List<dynamic> rightAnswer = List<dynamic>.empty(growable: true);
-  late List<dynamic> wrongAnswer = List<dynamic>.empty(growable: true);
-  late List<dynamic> possibleAnswers = List<dynamic>.empty(growable: true);
-  Bool? isQuention;
+  late String? title;
+  List<dynamic> rightAnswer = List<dynamic>.empty(growable: true);
+  List<dynamic> wrongAnswer = List<dynamic>.empty(growable: true);
+  List<dynamic> possibleAnswers = List<dynamic>.empty(growable: true);
+  late bool? isQuention;
 
   Exercice({
     required this.title,
@@ -25,10 +23,10 @@ class Exercice {
   }
 
   Map<String, dynamic> toMap() => {
-    "title": title,
-    "rightAnswer": rightAnswer,
-    "wrongAnswer": wrongAnswer,
-    "possibleAnswers": possibleAnswers,
-    "isQuestion": isQuention,
-  };
+        "title": title,
+        "rightAnswer": rightAnswer,
+        "wrongAnswer": wrongAnswer,
+        "possibleAnswers": possibleAnswers,
+        "isQuestion": isQuention,
+      };
 }

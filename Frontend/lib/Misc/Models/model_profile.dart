@@ -1,11 +1,18 @@
+import 'model_language.dart';
+
 class Profile {
   String? id;
   late String name;
   late String email;
   late String password;
-  String? image;
-  String? birthDate;
-  late String creationDate;
+  late String? image;
+  late int? birthDate;
+  late int? creationDate;
+  List<dynamic> followingObjectId = List.empty(growable: true);
+  List<dynamic> followersObjectId = List.empty(growable: true);
+  List<dynamic> languages = List.empty(growable: true);
+  late int? sequencialDays;
+  late int? hearts;
 
 //TODO MUDAR INT de DATAS DO BANCO PRA STRING
   Profile({
@@ -15,6 +22,8 @@ class Profile {
     required this.password,
     required this.creationDate,
     this.birthDate,
+    this.sequencialDays = 0,
+    this.hearts = 5,
   });
 
   Profile.fromMap(Map map) {
@@ -23,7 +32,12 @@ class Profile {
     email = map["email"];
     image = map["image"];
     birthDate = map["birthDate"];
-    creationDate = map["creationDate"];
+    creationDate = map["creationDate"] as int;
+    followingObjectId = map["followingObjectId"] as List<dynamic>;
+    followersObjectId = map["followersObjectId"] as List<dynamic>;
+    languages = map["languages"] as List<dynamic>;
+    sequencialDays = map["sequencialDays"];
+    hearts = map["hearts"];
   }
 
   Profile.defaultGetX();
@@ -36,5 +50,10 @@ class Profile {
         "image": image,
         "birthDate": birthDate,
         "creationDate": creationDate,
+        "followingObjectId": followingObjectId,
+        "followersObjectId": followersObjectId,
+        "languages": languages,
+        "sequencialDays": sequencialDays,
+        "hearts": hearts,
       };
 }
