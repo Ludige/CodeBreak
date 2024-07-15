@@ -1,18 +1,25 @@
+import 'dart:io';
+
+import 'package:duocode/Misc/GetX/logged_profile.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../Components/text_button_component.dart';
 import '../Components/text_edit_component.dart';
 
-class ConfigutarionProfileScreen extends StatefulWidget {
-  const ConfigutarionProfileScreen({super.key});
+class ConfigProfileScreen extends StatefulWidget {
+  const ConfigProfileScreen({super.key});
 
   @override
-  State<ConfigutarionProfileScreen> createState() =>
-      _ConfigutarionProfileScreenState();
+  State<ConfigProfileScreen> createState() => _ConfigProfileScreenState();
 }
 
-class _ConfigutarionProfileScreenState
-    extends State<ConfigutarionProfileScreen> {
+class _ConfigProfileScreenState extends State<ConfigProfileScreen> {
+  //TODO Adicionar login para salvar
+  // String? urlImageProfile = LoggedProfile().profile.value.image;
+  // File? _image;
+  LoggedProfile profile = Get.put(LoggedProfile());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

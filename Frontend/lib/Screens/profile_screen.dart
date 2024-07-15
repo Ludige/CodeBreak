@@ -15,8 +15,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  // LoggedProfile currentProfile = Get.put(LoggedProfile());
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -61,14 +59,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   "66870325e2941cd763b32621"),
                               builder: (context, profile) {
                                 if (profile.hasData) {
-                                  print("OWWNW");
                                   return ComponentText(
                                     fontSize: 20,
                                     overflow: TextOverflow.visible,
                                     text: profile.data!.name,
                                   );
                                 } else {
-                                  print(profile);
                                   return ComponentText(
                                     fontSize: 20,
                                     overflow: TextOverflow.visible,

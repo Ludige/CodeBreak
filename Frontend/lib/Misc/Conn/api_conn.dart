@@ -69,7 +69,7 @@ class ApiConnections {
       return Profile.fromMap(profilesMap);
     } else {
       print(
-          "id: $id Error ${response.statusCode.toString()}: ${response.body.toString()}");
+          "Error ${response.statusCode.toString()}: ${response.body.toString()}");
       throw Exception('Falha ao recuperar perfis');
     }
   }

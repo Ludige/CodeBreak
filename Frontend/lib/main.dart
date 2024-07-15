@@ -27,7 +27,7 @@ void main() {
         '/home': (context) => const LessonsScreen(),
         '/profile': (context) => const ProfileScreen(),
         '/activity': (context) => const ActivityScreen(),
-        '/configProfile': (context) => const ConfigutarionProfileScreen(),
+        '/configProfile': (context) => const ConfigProfileScreen(),
       },
       debugShowCheckedModeBanner: false,
     ),
