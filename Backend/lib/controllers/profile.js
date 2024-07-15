@@ -5,7 +5,7 @@ require("dotenv").config({ path: "variables.env" });
 module.exports = {
     create: async function (req, res, next) {
         try {
-            let reqProfile = req.body;
+            let reqProfile = req.params._id;
             reqProfile.creationDate = parseInt(reqProfile.creationDate);
             reqProfile.password = await bcrypt.hash(
                 reqProfile.password,
@@ -23,7 +23,7 @@ module.exports = {
     },
     followById: async function (req, res, next) {
         try {
-            const followObjectId = req.body.followObjectId;
+            const followObjectId = req.params._id.followObjectId;
             const idToken = req._idToken;
             let msgRes = "";
             let followProfile;
@@ -89,10 +89,11 @@ module.exports = {
         }
     },
     getById: async function (req, res, next) {
-        const _id = req.body;
+        const _id = req.params._id;
+        
         try {
             let profile = await Profile.findById(_id);
- 
+             
             profile == null ?
                 res.status(404).json({ msg: "Perfil não encontrado" }):
                 res.status(200).json(profile);
@@ -118,7 +119,7 @@ module.exports = {
     updateByToken: async function (req, res, next) {
         try {
             const _id = req._idToken;
-            const updateProfile = Profile(req.body);
+            const updateProfile = Profile(req.params._id);
 
             let profile = await Profile.findByIdAndUpdate(_id, {
                 $set: {
@@ -142,14 +143,14 @@ module.exports = {
         try {
             const _id = req._idToken;
 
-            let profile = await Profile.findById(req.body.profileObjectId);
+            let profile = await Profile.findById(req.params._id.profileObjectId);
             
             if (!profile) {
                 res.status(404).json({ msg: "Perfil não encontrado" });
                 return;
             }
             //TODO adicionar linguas e depois colocar aqui pra só aceitar as exitentes
-            profile.languages.push(req.body);
+            profile.languages.push(req.params._id);
             await profile.save();
             res.status(200).json(profile);
         } catch (error) {
@@ -158,7 +159,7 @@ module.exports = {
     },
     deleteByID: async function (req, res, next) {
         try {
-            let profile = await Profile.findById(req.body);
+            let profile = await Profile.findById(req.params._id);
 
             if (profile) {
                 await Profile.findOneAndDelete({ _id: profile });
