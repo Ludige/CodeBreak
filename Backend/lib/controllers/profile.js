@@ -1,5 +1,6 @@
 const Profile = require("../model/profile");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 require("dotenv").config({ path: "variables.env" });
 
 module.exports = {
@@ -73,6 +74,36 @@ module.exports = {
                 followProfile: followProfile,
             });
             return;
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    },
+    login: async function (req, res, next) {
+        try {
+            let profile = await Profile.findOne({ email: req.params.email });
+            if (!profile) {
+                res.status(404).json({ error: "Perfil não existe" });
+                return;
+            }
+
+            const match = await bcrypt.compare(
+                req.params.password,
+                profile.password
+            );
+
+            if (!match) {
+                res.status(400).json({ error: "Email ou Senha incorretos" });
+                return;
+            } else {
+                const { _id, email, nickname } = profile;
+
+                const token = jwt.sign(
+                    { id: _id, email: email, nickname: nickname },
+                    process.env.SECRET
+                    //{ expiresIn: 3600 }
+                );
+                res.status(200).json({ token: token });
+            }
         } catch (error) {
             res.status(500).json({ error: error.message });
         }

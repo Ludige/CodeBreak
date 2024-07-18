@@ -1,12 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-// const authVerify = require("../../authVerify");
-
 const controller = require("../controllers/profile");
 
 router.post("/create", controller.create);
 router.post("/follow/:followObjectId", controller.followById);
+router.post("/", controller.login);
 router.get("/getAll", controller.getAll);
 router.get("/getById/:_id", controller.getById);
 // router.get("/getByNickname/:nickname",controller.getByNickname);
