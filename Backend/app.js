@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+mongoose.set('strictQuery', false);
 require("dotenv").config({ path: "./variables.env" });
 
 // const authVerify = require("./authVerify");
